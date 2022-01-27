@@ -16,14 +16,14 @@ clock = pygame.time.Clock()
 run = True
 
 # -------Font setup-------
-rock_3d = 'Font/Rock3D-Regular.ttf'
+# rock_3d = 'Font/Rock3D-Regular.ttf'
 island_moments = 'Font/IslandMoments-Regular.ttf'
 mochiy = 'Font/MochiyPopPOne-Regular.ttf'
 lena = 'Font/Lena.ttf'
 audry = 'Font/Audrey-Normal.otf'
-caviar = 'Font/CaviarDreams.ttf'
-caviar_font = pygame.font.Font(caviar,30)
-audry_font = pygame.font.Font(audry,30)
+# caviar = 'Font/CaviarDreams.ttf'
+# caviar_font = pygame.font.Font(caviar,30)
+# audry_font = pygame.font.Font(audry,30)
 
 font = pygame.font.Font(None, 30)
 font_size = 30
@@ -290,13 +290,13 @@ while run:
     for surf in user_text_surf:
         temp = user_text_surf.index(surf)
         surf = user_fonts[user_text_surf.index(surf)].render(user_text[user_text_surf.index(surf)],True,'white')
-        # surf = user_font.render(user_text[user_text_surf.index(surf)],True,'white')
         screen.blit(surf,(boxes_coordinate[temp][0]+10,boxes_coordinate[temp][1]+35))
 
         if surf.get_width() > text_width-offset-10:
             font_sizes[temp]-=1
             user_fonts[temp] = pygame.font.Font(lena,font_sizes[temp])
 
+    # Buttons
     submit.draw()
     submitted = submit.check_click()
 
@@ -309,6 +309,7 @@ while run:
     if submitted:
         do_submit()
 
+    # Things
     alphabet_surf = alphabet_font.render(current_alphatbet,True,'#C8DF52')
     screen.blit(alphabet_surf,(screen_width/2-alphabet_surf.get_width()/2,-20))
     
@@ -318,6 +319,7 @@ while run:
     timer_surf = score_font.render(f'Time left: {counter}',True,'white')
     screen.blit(timer_surf,(590,60))
 
+    # Boxes
     for i in boxes:
         i.draw1()
         i.update()
